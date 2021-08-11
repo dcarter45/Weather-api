@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js">
+    <title>The Weather Dashboard</title>
+</head>
+<body>
+    <header>The Weather Dashboard</header>
+
+    <div class="container">
+        <div class="current-info">
+            <div class="date-container">
+                <div class="time" id="time">12:30
+                    <span id="am-pm"PM</span>
+                </div>
+
+                <div class="date" id="date">Tuesday, 10 August                 
+                </div>
+                <div class="others" id="current-weather-items">
+                    <div class="weather-items">
+                        <p>Humidity</p>
+                        <p>95.2%</p>
+                    </div>
+                    <div class="weather-items">
+                        <p>pressure</p>
+                        <p>95.2%</p>
+                    </div>
+                    <div class="weather-items">
+                        <p>windspeed</p>
+                        <p>95.2%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-container">
+                <div class="time-zone" id="time-zone">Asia</div>
+                <div class="country" id="country">China</div>
+            </div>
+        </div>
+
+        <div class="future-forecast">
+            <div class="today" id="current-temp">
+                <div class="day">Tuesday</div>
+                <img src="" alt="weather icon" class= "w-icon">
+                <div class="temp">Night-25.99%F</div>
+                <div class="temp">Day-25.99%F</div>
+            </div>
+
+            <div class="weather-forecast" id="weather-forecast">
+                <div class="weather-forcast-items">
+                    <div class="day">Tuesday</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night-25.99%F</div>
+                    <div class="temp">Day-25.99%F</div>
+                </div>
+                <div class="weather-forcast-items">
+                    <div class="day">Tuesday</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night-25.99%F</div>
+                    <div class="temp">Day-25.99%F</div>
+                </div>
+                <div class="weather-forcast-items">
+                    <div class="day">Tuesday</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night-25.99%F</div>
+                    <div class="temp">Day-25.99%F</div>
+                </div>
+                <div class="weather-forcast-items">
+                    <div class="day">Tuesday</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night-25.99%F</div>
+                    <div class="temp">Day-25.99%F</div>
+                </div>
+                <div class="weather-forcast-items">
+                    <div class="day">Tuesday</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night-25.99%F</div>
+                    <div class="temp">Day-25.99%F</div>
+                </div>
+                <div class="weather-forcast-items">
+                    <div class="day">Tuesday</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night-25.99%F</div>
+                    <div class="temp">Day-25.99%F</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <main>
+        <aside>
+        <form>
+            <input class=" search form-control form-control-lg" type="text" placeholder="enter city" id=search>
+        </form>
+        </aside>
+    </main>
+    
+    <!-- Begin Scripts -->
+
+      <!-- jQuery -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Moment.js -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+      <!-- Google Maps API -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9k5V2rEyMVVqtgHpon-Ro8hRQAatBx8&callback=initmap"></script>
+      <!-- Custom Script -->
+      <script src="./assets/js/script.js"></script>
+    <!-- End Scripts -->
+</body>
+
+</html>
