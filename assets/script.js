@@ -28,9 +28,13 @@ function weatherAPI() {
 
       let cardKey = 0;
       for (let item of data.list.slice(1)) {
-        weatherForecastElList[cardKey].getElementsByClassName("temp-day")[0].innerHTML = item.temp.day;
+        weatherForecastElList[cardKey].getElementsByClassName("temp-day")[0].innerHTML = `day: ${item.temp.day}`;
         weatherForecastElList[cardKey].getElementsByClassName("day")[0].innerHTML =
-          new Date(item.dt * 1000).getDate() + "/" + new Date(item.dt * 1000).getMonth();
+          new Date(item.dt * 1000).getMonth() +
+          "/" +
+          new Date(item.dt * 1000).getDate() +
+          "/" +
+          new Date(item.dt * 1000).getFullYear();
         cardKey++;
       }
     });
@@ -43,7 +47,7 @@ function updateFirstCard(data) {
   tempNight.innerHTML = data.main.temp;
 
   const tempDay = currentTempEl.getElementsByClassName("temp-day")[0];
-  tempDay.innerHTML = data.main.temp;
+  tempDay.innerHTML = `day: ${data.main.temp}`;
 }
 
 function updateCityName(data) {
