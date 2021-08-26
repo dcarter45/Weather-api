@@ -1,31 +1,52 @@
-const timeEl = document.getElementById('time');
-const dateEl = document.getElementById('date');
-const currentWeatherItemsEl = document.getElementById('current-weather-items');
-const timezone = document.getElementById('time-zone');
-const search = document.getElementById('submit');
-const countryEl = document.getElementById('country');
-const weatherForecastEl = document.getElementById('weather-forecast');
-const currentTempEl = document.getElementById('current-temp');
+const timeEl = document.getElementById("time");
+const dateEl = document.getElementById("date");
+const currentWeatherItemsEl = document.getElementById("current-weather-items");
+const timezone = document.getElementById("time-zone");
+const search = document.getElementById("submit");
+const countryEl = document.getElementById("country");
+const weatherForecastEl = document.getElementById("weather-forecast");
+const currentTempEl = document.getElementById("current-temp");
 
+function weatherAPI() {
+  const cityName = document.getElementById("cityName").value;
 
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=3283ea35cac6c2691b9c0744c07547de`)
+    .then((response) => response.json())
+    .then((data) => {
+      updateFirstCard(data);
 
-function weatherAPI(){
-    const cityName= document.getElementById('cityName').value
-    console.log(cityName);
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=19c84895f9f2ef636c0c6e74ff8df1ef`).then((response) => response.json())
-    .then((data)=> {
-        const currentTempEl = document.getElementById('current-temp');
-    console.log(currentTempEl);
-    const tempNight= currentTempEl.getElementsByClassName('temp-night')[0];
-    tempNight.innerHTML=data.main.temp/32;
-    const tempDay= currentTempEl.getElementsByClassName('temp-day')[0];
-    tempDay.innerHTML=data.main.temp/32;
-        console.log(data);
-        const timezone = document.getElementById('time-zone');
-        timezone.innerHTML=`${data.sys.country}/${data.name}`;
-        console.log(timezone);
-    } )
-       
-    
+      updateCityName(data);
+    });
+
+  fetch(
+    `https://api.openweathermap.org/data/2.5/forecast/daily?q=${cityName}&cnt=6&appid=3283ea35cac6c2691b9c0744c07547de`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      const weatherForecastEl = document.getElementById("weather-forecast");
+      const weatherForecastElList = weatherForecastEl.getElementsByClassName("weather-forecast-item");
+
+      let cardKey = 0;
+      for (let item of data.list.slice(1)) {
+        weatherForecastElList[cardKey].getElementsByClassName("temp-day")[0].innerHTML = item.temp.day;
+        weatherForecastElList[cardKey].getElementsByClassName("day")[0].innerHTML =
+          new Date(item.dt * 1000).getDate() + "/" + new Date(item.dt * 1000).getMonth();
+        cardKey++;
+      }
+    });
 }
 
+function updateFirstCard(data) {
+  const currentTempEl = document.getElementById("current-temp");
+
+  const tempNight = currentTempEl.getElementsByClassName("temp-night")[0];
+  tempNight.innerHTML = data.main.temp;
+
+  const tempDay = currentTempEl.getElementsByClassName("temp-day")[0];
+  tempDay.innerHTML = data.main.temp;
+}
+
+function updateCityName(data) {
+  const timezone = document.getElementById("time-zone");
+  timezone.innerHTML = `${data.sys.country}/${data.name}`;
+}
