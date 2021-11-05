@@ -70,7 +70,10 @@ function weatherAPI() {
         cardKey++;
       }
     });
+
 }
+
+document.getElementById('submit_button').addEventListener('click',weatherAPI);
 
 function updateFirstCard(data) {
   const currentTempEl = document.getElementById("current-temp");
